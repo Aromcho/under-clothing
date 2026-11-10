@@ -74,11 +74,19 @@
 @keyframes pop { 0% { transform: scale(1); } 40% { transform: scale(1.35); } 100% { transform: scale(1); } }
 .animate-pop { animation: pop 0.45s var(--ease-out-soft); }
 .fade-up { animation: fade-up 0.7s var(--ease-out-soft) both; }
+/* palabras del título de portada: suben desde abajo (CSS puro, se ve aunque el JS tarde) */
+@keyframes word-up { from { transform: translateY(105%); } to { transform: none; } }
+.word-up { animation: word-up 0.9s var(--ease-out-soft) both; }
 
 /* Textura de lino muy sutil para las secciones rosadas */
 .linen { background-color: var(--color-surface); background-image: linear-gradient(rgb(245 236 233 / 0.72), rgb(245 236 233 / 0.72)), url("/brand/lino.webp"); background-size: cover; background-position: center; }
 
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+
+/* "Reducir movimiento": nada se desplaza ni gira, pero los fundidos se mantienen */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+  .fade-up, .word-up { animation-name: fade-in; }
+  .animate-pop { animation: none; }
+  *, *::before, *::after { transition-property: opacity, color, background-color, border-color, box-shadow !important; }
 }

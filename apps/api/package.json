@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "nest start --watch",
+    "prebuild": "node ../../scripts/preparar-media.mjs",
     "build": "nest build",
     "start": "node dist/main.js",
     "db:generate": "drizzle-kit generate",

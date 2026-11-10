@@ -57,11 +57,13 @@ export function Header({ nav, index, business }: { nav: Nav; index: SearchEntry[
     { href: '/contacto', label: 'Showroom' },
   ];
   const ig = contactLink({ ...business, whatsapp: '' });
+  // Sobre el video de portada (celular y tablet) el header va en claro hasta que se hace scroll
+  const overlay = pathname === '/' && !solid && !menu;
 
   return (
     <>
       <a href="#contenido" className="btn btn-sm sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[90]">Saltar al contenido</a>
-      <header className={`fixed inset-x-0 top-0 z-50 h-[var(--header-h)] transition-[background,box-shadow] duration-300 ${solid || menu ? 'bg-bg/92 shadow-[0_1px_0_var(--color-line)] backdrop-blur-md' : 'bg-transparent'}`}>
+      <header className={`fixed inset-x-0 top-0 z-50 h-[var(--header-h)] transition-[background,box-shadow,color] duration-300 ${solid || menu ? 'bg-bg/92 shadow-[0_1px_0_var(--color-line)] backdrop-blur-md' : 'bg-transparent'} ${overlay ? 'text-bg lg:text-ink [&_.text-muted]:text-bg/75 lg:[&_.text-muted]:text-muted' : ''}`}>
         <div className="container-x grid h-full grid-cols-[1fr_auto_1fr] items-center">
           <div className="flex items-center gap-7">
             <button className="-ml-2 grid h-11 w-11 place-items-center rounded-full lg:hidden" onClick={() => setMenu((m) => !m)} aria-expanded={menu} aria-controls="menu-movil" aria-label={menu ? 'Cerrar menú' : 'Abrir menú'}>

@@ -11,6 +11,8 @@ config({ path: path.resolve(process.cwd(), '.env'), quiet: true });
 export const DB = 'DB';
 export type Db = NodePgDatabase<typeof schema>;
 export const UPLOADS_DIR = path.resolve(process.cwd(), 'uploads');
+/** Videos de la web generados por scripts/preparar-media.mjs (se sirven en /media). */
+export const MEDIA_DIR = path.resolve(process.cwd(), 'media-web');
 
 export function createDb() {
   const pool = new Pool({ connectionString: process.env.DATABASE_URL });
