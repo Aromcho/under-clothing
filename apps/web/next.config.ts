@@ -7,6 +7,8 @@ config({ path: path.resolve(process.cwd(), '../../.env'), quiet: true });
 const API = process.env.API_URL ?? 'http://localhost:4000';
 
 const nextConfig: NextConfig = {
+  // El deploy del MCP compila en .next-new y después lo intercambia con .next (sin cortar el sitio)
+  distDir: process.env.NEXT_DIST_DIR ?? '.next',
   reactStrictMode: true,
   poweredByHeader: false,
   env: { NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000' },
