@@ -2,6 +2,7 @@ import Link from 'next/link';
 import type { Product } from '@/lib/types';
 import { available, colorsOf, money } from '@/lib/format';
 import { Picture } from './Picture';
+import { MiniTag } from './HangTag';
 
 /** Tarjeta de prenda: foto protagonista, nombre en mayúsculas, precio y colores. */
 export function ProductCard({ p, priority, sizes = '(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw', index }: { p: Product; priority?: boolean; sizes?: string; index?: number }) {
@@ -13,10 +14,8 @@ export function ProductCard({ p, priority, sizes = '(min-width: 1024px) 25vw, (m
       <div className="relative aspect-[3/4] overflow-hidden rounded-[3px] bg-surface">
         {a && <Picture media={a} sizes={sizes} alt="" priority={priority} className="h-full w-full transition-transform duration-[1400ms] ease-[var(--ease-out-soft)] group-hover:scale-[1.04]" position="center 30%" />}
         {b && <Picture media={b} sizes={sizes} alt="" className="absolute inset-0 hidden h-full w-full opacity-0 transition-opacity duration-500 group-hover:opacity-100 [@media(hover:hover)]:block" position="center 30%" />}
-        <span className="absolute top-2.5 left-2.5 flex gap-1.5">
-          {p.isNew && !out && <span className="label rounded-full bg-bg/92 px-2.5 py-1.5 text-[0.55rem] backdrop-blur">Nuevo</span>}
-          {out && <span className="label rounded-full bg-bg/92 px-2.5 py-1.5 text-[0.55rem]">Sin stock</span>}
-        </span>
+        {p.isNew && !out && <MiniTag className="absolute -top-px right-4">Nuevo</MiniTag>}
+        {out && <span className="label absolute top-2.5 left-2.5 rounded-full bg-bg/92 px-2.5 py-1.5 text-[0.55rem]">Sin stock</span>}
         {index != null && <span className="label absolute right-2.5 bottom-2.5 rounded-full bg-bg/80 px-2 py-1 text-[0.55rem] tabular-nums backdrop-blur">{String(index).padStart(2, '0')}</span>}
       </div>
       <div className="mt-3 px-0.5">
