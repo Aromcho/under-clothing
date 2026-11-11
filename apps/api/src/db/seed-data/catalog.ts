@@ -2,6 +2,7 @@
  * Contenido relevado del Instagram @under.clothing7 (86 publicaciones + destacada "EN STOCK").
  * Los nombres, colores, talles y descripciones salen de cada publicación; nada está inventado.
  * Precio y stock no figuran en el Instagram: quedan vacíos para cargarlos desde el panel.
+ * Las prendas con post 0 son ingresos que mandó la clienta (fotos en seed/images/nuevos, refs "nNN_k").
  */
 export type Img = string | { f: string; crop: [number, number, number, number] };
 export type SeedProduct = {
@@ -13,7 +14,7 @@ export const COLOR_HEX: Record<string, string> = {
   Negro: '#1C1A1A', Blanco: '#FAF8F5', Crudo: '#EFE6D8', Beige: '#D9C4A9', Gris: '#9A9A9C', 'Gris oscuro': '#55565A', 'Gris topo': '#6B6763',
   'Azul oscuro': '#1F2A44', Azul: '#27406E', Bordó: '#6E1F2B', Marrón: '#5A3E2E', Chocolate: '#4A3024', Celeste: '#A9C6E0', Rosa: '#D98E93',
   Terracota: '#C9502E', Verde: '#1F3D36', 'Animal print': '#B88A4A', 'Jean claro': '#A9C0DA', 'Jean azul': '#5E7FA6', 'Jean negro': '#2B2B2E',
-  'Jean gris': '#77746C', Estampado: '#8B7B66', 'Rayado bordó': '#7A2E3A', 'Rayado celeste': '#9DB9D6', 'Rayado negro': '#3A3837', 'Blanco y negro': '#D8D5D0',
+  'Jean gris': '#77746C', 'Jean oscuro': '#2F3E4C', 'Negro lavado': '#3A3838', 'Print vaca': '#DCD3C3', Estampado: '#8B7B66', 'Rayado bordó': '#7A2E3A', 'Rayado celeste': '#9DB9D6', 'Rayado negro': '#3A3837', 'Blanco y negro': '#D8D5D0',
 };
 
 export const CATEGORIES = [
@@ -38,15 +39,32 @@ export const COLLECTIONS = [
 const PV = ['primavera-verano'], OI = ['otono-invierno'], TJ = ['tejidos'];
 
 export const PRODUCTS: SeedProduct[] = [
+  // ——— nuevos ingresos (noviembre 2026): fotos enviadas por la clienta
+  { post: 0, name: 'Remera Oakland', cat: 'musculosas-remeras', colors: ['Marrón', 'Negro'], imgs: ['n12_1', 'n12_2'], cols: PV, isNew: true, featured: true },
+  { post: 0, name: 'Remera Germany', cat: 'musculosas-remeras', colors: ['Negro', 'Blanco'], imgs: ['n13_1', 'n13_2'], cols: PV, isNew: true, featured: true },
+  { post: 0, name: 'Top halter con botones', cat: 'tops', colors: ['Marrón', 'Negro'], imgs: ['n07_1', 'n07_2'], cols: PV, isNew: true, featured: true },
+  { post: 0, name: 'Musculosa Local Celebrity', cat: 'musculosas-remeras', colors: ['Marrón', 'Negro'], imgs: ['n09_1', 'n09_2'], cols: PV, isNew: true },
+  { post: 0, name: 'Campera de cuero con ojales', cat: 'abrigos', colors: ['Negro'], imgs: ['n08_1'], cols: OI, isNew: true, featured: true },
+  { post: 0, name: 'Campera de peluche con hebillas', cat: 'abrigos', colors: ['Negro'], imgs: ['n06_1'], cols: OI, isNew: true },
+  { post: 0, name: 'Remera Red Wings', cat: 'musculosas-remeras', colors: ['Crudo'], imgs: ['n01_1'], cols: PV, isNew: true },
+  { post: 0, name: 'Sweater de lentejuelas', cat: 'sweaters', colors: ['Negro'], imgs: ['n02_1'], cols: TJ, isNew: true },
+  { post: 0, name: 'Top de encaje hombros afuera', cat: 'tops', colors: ['Negro'], imgs: ['n03_1'], cols: PV, isNew: true },
+  { post: 0, name: 'Musculosa Resonance', cat: 'musculosas-remeras', colors: ['Negro lavado'], imgs: ['n04_1'], cols: PV, isNew: true },
+  { post: 0, name: 'Buzo con tachas', cat: 'buzos', colors: ['Gris'], imgs: ['n05_1'], cols: OI, isNew: true },
+  { post: 0, name: 'Remera Creativity', cat: 'musculosas-remeras', colors: ['Negro'], imgs: ['n10_1'], cols: PV, isNew: true },
+  { post: 0, name: 'Remera oversize Jaguars', cat: 'musculosas-remeras', colors: ['Negro'], imgs: ['n11_1'], cols: PV, isNew: true },
+  { post: 0, name: 'Sweater con media cremallera', cat: 'sweaters', colors: ['Negro'], imgs: ['n14_1', 'n15_1'], cols: [...OI, ...TJ], isNew: true },
+  { post: 0, name: 'Jean print vaca', cat: 'pantalones', colors: ['Print vaca'], imgs: ['n15_1'], sizesNote: 'Consultar talles disponibles', isNew: true, featured: true },
+  { post: 0, name: 'Jean baggy tiro bajo', cat: 'pantalones', colors: ['Jean oscuro'], imgs: ['n16_1'], sizesNote: 'Consultar talles disponibles', isNew: true },
   // ——— 2026 / fines de 2025: nuevos ingresos
-  { post: 2, name: 'Remera Lover Confidence', cat: 'musculosas-remeras', colors: ['Blanco'], imgs: [{ f: '02_1', crop: [0, 0, 670, 900] }], desc: 'Remeras con la mejor calidad y comodidad que podés encontrar.', sizesNote: 'Talles del S al L', cols: PV, isNew: true },
-  { post: 5, name: 'Sweater con cuello tejido', cat: 'sweaters', colors: ['Negro', 'Azul oscuro', 'Beige'], imgs: ['05_1', '05_2', '05_4', '05_3'], desc: 'El detalle de las mangas con dobladillo lo hace único, y ni hablar de lo suavecito que es. Ni dudes de que va a ser tu favorito.', cols: OI, isNew: true, featured: true },
-  { post: 7, name: 'Buzo chomba', cat: 'buzos', colors: ['Gris', 'Marrón'], imgs: ['07_1', '07_2'], cols: OI, isNew: true },
-  { post: 7, name: 'Buzo corto', cat: 'buzos', colors: ['Negro'], imgs: ['07_3'], cols: OI, isNew: true },
-  { post: 8, name: 'Top halter con hebilla', cat: 'tops', colors: ['Blanco', 'Negro'], imgs: ['08_1', '08_2'], cols: PV, isNew: true, featured: true },
-  { post: 9, name: 'Top halter de encaje', cat: 'tops', colors: ['Negro'], imgs: ['09_1', '09_3', '09_2'], desc: 'Nuevos ingresos: son una bomba.', cols: PV, isNew: true },
-  { post: 10, name: 'Conjunto de encaje', cat: 'conjuntos', colors: ['Blanco', 'Negro'], imgs: ['10_1', '10_2', '10_3'], desc: 'Este conjunto es muy bomba, y el calce que tiene: lo van a amar. Se vende por partes separadas o en conjunto.', cols: PV, isNew: true, featured: true },
-  { post: 11, name: 'Shorts de jean', cat: 'shorts-polleras', colors: ['Jean claro', 'Jean negro', 'Jean azul'], imgs: ['11_1', '11_3', '11_5', '11_2', '11_4', '11_6'], desc: 'La temporada de los shorts está llegando. La moda se renueva y los shorts también.', sizesNote: 'Consultar talles disponibles', cols: PV, isNew: true },
+  { post: 2, name: 'Remera Lover Confidence', cat: 'musculosas-remeras', colors: ['Blanco'], imgs: [{ f: '02_1', crop: [0, 0, 670, 900] }], desc: 'Remeras con la mejor calidad y comodidad que podés encontrar.', sizesNote: 'Talles del S al L', cols: PV },
+  { post: 5, name: 'Sweater con cuello tejido', cat: 'sweaters', colors: ['Negro', 'Azul oscuro', 'Beige'], imgs: ['05_1', '05_2', '05_4', '05_3'], desc: 'El detalle de las mangas con dobladillo lo hace único, y ni hablar de lo suavecito que es. Ni dudes de que va a ser tu favorito.', cols: OI, featured: true },
+  { post: 7, name: 'Buzo chomba', cat: 'buzos', colors: ['Gris', 'Marrón'], imgs: ['07_1', '07_2'], cols: OI },
+  { post: 7, name: 'Buzo corto', cat: 'buzos', colors: ['Negro'], imgs: ['07_3'], cols: OI },
+  { post: 8, name: 'Top halter con hebilla', cat: 'tops', colors: ['Blanco', 'Negro'], imgs: ['08_1', '08_2'], cols: PV, featured: true },
+  { post: 9, name: 'Top halter de encaje', cat: 'tops', colors: ['Negro'], imgs: ['09_1', '09_3', '09_2'], desc: 'Nuevos ingresos: son una bomba.', cols: PV },
+  { post: 10, name: 'Conjunto de encaje', cat: 'conjuntos', colors: ['Blanco', 'Negro'], imgs: ['10_1', '10_2', '10_3'], desc: 'Este conjunto es muy bomba, y el calce que tiene: lo van a amar. Se vende por partes separadas o en conjunto.', cols: PV, featured: true },
+  { post: 11, name: 'Shorts de jean', cat: 'shorts-polleras', colors: ['Jean claro', 'Jean negro', 'Jean azul'], imgs: ['11_1', '11_3', '11_5', '11_2', '11_4', '11_6'], desc: 'La temporada de los shorts está llegando. La moda se renueva y los shorts también.', sizesNote: 'Consultar talles disponibles', cols: PV },
   // ——— 2025
   { post: 12, name: 'Calza Oxford + campera', cat: 'conjuntos', colors: ['Gris', 'Negro'], imgs: ['12_2', '12_1', '12_3', '12_4'], desc: 'Ideal para estar cómoda y hacer ejercicio.' },
   { post: 13, name: 'Strapless Bari', cat: 'tops', colors: ['Negro'], imgs: ['13_1', '13_2'], cols: PV },

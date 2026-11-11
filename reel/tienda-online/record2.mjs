@@ -16,7 +16,7 @@ let seg = '', n = 0, t = 0;
 function start(name) { seg = name; n = 0; taps[name] = []; mkdirSync(`${ROOT}/${name}`, { recursive: true }); }
 async function prepare(url) {
   await page.goto(BASE + url, { waitUntil: 'networkidle' });
-  await page.addStyleTag({ content: 'html{scroll-behavior:auto!important} ::-webkit-scrollbar{display:none} *{caret-color:transparent}' });
+  await page.addStyleTag({ content: 'html{scroll-behavior:auto!important} ::-webkit-scrollbar{display:none} *{caret-color:transparent} nextjs-portal{display:none!important}' });
   await page.evaluate(async () => {
     document.querySelectorAll('img').forEach((i) => { i.loading = 'eager'; });
     await Promise.all([...document.images].map((i) => (i.complete ? null : new Promise((r) => { i.onload = i.onerror = r; }))));
@@ -55,7 +55,7 @@ start('b');
 await prepare('/tienda');
 await hold(0.4, 0);
 await scroll(0, 300, 0.8);
-await tap(page.getByRole('button', { name: 'Tops', exact: true }), 0.35);
+await tap(page.getByRole('button', { name: 'Nuevos', exact: true }), 0.35);
 await hold(0.9);
 const yb = await page.evaluate(() => window.scrollY);
 await scroll(yb, yb + 520, 1.0);
@@ -63,11 +63,11 @@ await hold(0.25);
 
 // ——— C: ficha → color → pedido → enviado
 start('c');
-await prepare('/producto/top-agus');
+await prepare('/producto/remera-oakland');
 await hold(0.6, 0);
 const yc = await page.evaluate(() => Math.max(0, document.querySelector('fieldset legend').getBoundingClientRect().top + window.scrollY - 250));
 await scroll(0, yc, 0.85);
-await tap(page.getByRole('button', { name: /^Color Bordó/ }), 0.35);
+await tap(page.getByRole('button', { name: /^Color Negro/ }), 0.35);
 await hold(0.3);
 await tap(page.getByRole('button', { name: /Agregar al pedido/ }), 0.35);
 await hold(1.0);

@@ -10,8 +10,8 @@ Reel vertical de 33 s para anunciar la tienda online. El video ya está cortado 
 | 0:00 – 0:03 | **Desde hoy, Under no cierra nunca.** | Fachada real del showroom |
 | 0:03 – 0:07 | Abrimos nuestra tienda online: todo el showroom, ahora en tu celular. | Interior y percheros → entra el celular con la web |
 | 0:07 – 0:12 | Más de setenta prendas para mirar tranquila, a la hora que quieras. | La web: portada, nuevos ingresos, filtro por categoría |
-| 0:12 – 0:19 | Elegís la prenda y el color… la sumás al pedido… y nos lo mandás en un mensaje. Así de fácil. | Ficha del Top Agus → color → pedido → enviado |
-| 0:19 – 0:23 | Enviamos a todo el país. Y en Gesell, el envío es gratis. | Mosaico de prendas |
+| 0:12 – 0:19 | Elegís la prenda y el color… la sumás al pedido… y nos lo mandás en un mensaje. Así de fácil. | Ficha de la Remera Oakland → color → pedido → enviado |
+| 0:19 – 0:23 | Enviamos a todo el país. Y en Gesell, el envío es gratis. | Mosaico de los nuevos ingresos |
 | 0:23 – 0:28 | ¿Preferís probarte todo? Te esperamos en el showroom: Paseo 104, entre 3 y 4. | Cintos, puerta y rincón del local |
 | 0:28 – 0:33 | Tu próximo "me lo merezco" está a un toque. Link en la bio. | Etiqueta con el logo + "Link en la bio" |
 

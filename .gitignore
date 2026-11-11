@@ -12,3 +12,7 @@ reel/frames/
 reel/tmp/
 apps/api/media-web/
 media/fuentes/*-kling.mp4
+reel/tienda-online/frames/
+reel/tienda-online/scenes/
+reel/tienda-online/tmp/
+apps/web/AGENTS.md

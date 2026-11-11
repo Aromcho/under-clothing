@@ -42,6 +42,7 @@ const storyFiles = readdirSync(path.join(SEED, 'stories'));
     return row.id;
   }
   const postFile = (ref: string) => {
+    if (/^n\d+_\d+$/.test(ref)) return path.join(SEED, 'nuevos', ref + '.jpg');
     const [n, k] = ref.split('_');
     const f = postFiles.find((x) => x.startsWith(n + '_') && new RegExp(`_${k}(_videocover)?\\.jpg$`).test(x));
     if (!f) throw new Error('No encuentro la foto ' + ref);
@@ -73,7 +74,7 @@ const storyFiles = readdirSync(path.join(SEED, 'stories'));
   process.stdout.write(`  Procesando ${PRODUCTS.length} prendas`);
   const slugs = new Set<string>();
   for (const [i, p] of PRODUCTS.entries()) {
-    const post = (relevamiento as any).posts[p.post - 1];
+    const post = p.post ? (relevamiento as any).posts[p.post - 1] : { url: '', fecha: '2026-11-10T12:00:00-03:00' };
     let slug = slugify(p.name);
     for (let n = 2; slugs.has(slug); n++) slug = `${slugify(p.name)}-${n}`;
     slugs.add(slug);

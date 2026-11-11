@@ -24,7 +24,7 @@ npm run dev
 - Panel: <http://localhost:3000/admin>
 - API: <http://localhost:4000/api>
 
-`npm run setup` hace todo: crea el `.env` con secretos aleatorios, levanta PostgreSQL en Docker (puerto **5433**), corre las migraciones y carga el seed con las 78 prendas, 30 historias, las fotos del showroom y los fondos. El seed procesa unas 250 imágenes: tarda 2 o 3 minutos.
+`npm run setup` hace todo: crea el `.env` con secretos aleatorios, levanta PostgreSQL en Docker (puerto **5433**), corre las migraciones y carga el seed con las 94 prendas (78 del Instagram + 16 nuevos ingresos), 30 historias, las fotos del showroom y los fondos. El seed procesa unas 250 imágenes: tarda 2 o 3 minutos.
 
 ### Usuario administrador
 
@@ -43,6 +43,7 @@ Se definen en `.env` (`ADMIN_EMAIL`, `ADMIN_PASSWORD`) antes de correr el seed. 
 | `npm run build` | Compila API y web para producción |
 | `npm start` | Levanta lo compilado |
 | `npm run db:seed` | Vuelve a cargar el contenido relevado (**borra** lo editado en el panel) |
+| `npm run db:nuevos` | Suma los nuevos ingresos a una base ya publicada **sin borrar nada** (se puede correr más de una vez) |
 | `npm run db:migrate` | Aplica migraciones pendientes |
 | `npm run db:generate` | Genera una migración a partir de `apps/api/src/db/schema.ts` |
 | `npm run test:e2e` | Verificación con Playwright (con la web corriendo) |
