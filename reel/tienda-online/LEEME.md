@@ -2,7 +2,7 @@
 
 - `guion.md`: guion de la voz en off con tiempos.
 - `under-clothing-tienda-online.mp4`: el video (1080×1920, 30 fps) con la voz en off y la música.
-- `audio/`: voz en off (`voz-1.m4a` toma completa hasta el showroom, `voz-2-final.m4a` cierre regrabado), `musica.wav` y `mezcla.wav`.
+- `audio/`: voz en off (`voz-1.m4a` toma completa, `voz-2-final.m4a` cierre regrabado), `musica.wav`, `voz.wav` y `mezcla.wav`.
 - `musica.py`: genera la música por código (house minimal, 120 BPM): es original, sin derechos de terceros.
 
 ## Para volver a generarlo
@@ -15,7 +15,9 @@ Necesita Python con Pillow y ffmpeg. Los textos en pantalla están en el diccion
 
 ## Audio
 
-`python musica.py 32.8` genera `audio/musica.wav`. La mezcla (voz con compresión y normalizada, música que baja sola cuando habla la voz, −14 LUFS) se arma con ffmpeg: `voz-1` desde el inicio (recortada a 28,3 s) y `voz-2-final` a partir de 28,4 s.
+1. `python musica.py 32.8` genera `audio/musica.wav`.
+2. `python mezcla.py` corta la voz frase por frase y pone cada una cuando aparece su texto en pantalla (tabla `FRASES`). El cierre de `voz-1` ("Tu próximo me lo merezco… link en la bio") salió mal y no se usa: va el de `voz-2-final`. La música baja sola cuando habla la voz y la mezcla queda en −14 LUFS.
+3. `ffmpeg -i video-mudo.mp4 -i audio/mezcla.wav -map 0:v -map 1:a -c:v copy -af apad -c:a aac -b:a 192k -t 32.733 -movflags +faststart under-clothing-tienda-online.mp4`
 
 ## Actualización noviembre 2026
 
