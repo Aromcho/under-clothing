@@ -12,6 +12,8 @@ import { SettingsController } from './settings/settings';
 import { PublicController } from './public/public';
 import { DashboardController } from './dashboard/dashboard';
 import { UsersController } from './users/users';
+import { InternalController } from './internal/internal';
+import { InternalGuard } from './internal/internal.guard';
 
 const conn = createDb();
 
@@ -19,8 +21,9 @@ const conn = createDb();
   controllers: [
     AuthController, PublicController, OrdersController, ProductsController, MediaController, SettingsController, DashboardController, UsersController,
     CategoriesController, CollectionsController, StoriesController, BannersController, BenefitsController, SizeGuidesController,
+    InternalController,
   ],
-  providers: [{ provide: DB, useValue: conn.db }, { provide: 'POOL', useValue: conn.pool }, AuthGuard, ImageService, Revalidator, ActivityLog],
+  providers: [{ provide: DB, useValue: conn.db }, { provide: 'POOL', useValue: conn.pool }, AuthGuard, InternalGuard, ImageService, Revalidator, ActivityLog],
 })
 export class AppModule implements OnApplicationShutdown {
   constructor(@Inject('POOL') private pool: Pool) {}
